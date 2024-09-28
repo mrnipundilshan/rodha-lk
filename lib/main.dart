@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rodhalk/homepage.dart';
 import 'package:rodhalk/login.dart';
+import 'package:rodhalk/register.dart';
 import 'package:rodhalk/splashscreen.dart';
 
 void main() {
@@ -25,10 +26,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/', // Set the splash screen as the initial route
       routes: {
-        // '/': (context) => splashscreen(),
+        '/': (context) => splashscreen(),
         '/home': (context) => homepage(), // Replace with your main screen
-        //'login': (context) => login(),
-        '/': (context) => login(),
+        'login': (context) => login(),
+        '/register': (context) => register(),
       },
     );
   }

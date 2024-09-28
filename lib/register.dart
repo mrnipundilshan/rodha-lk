@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rodhalk/login.dart';
+import 'package:rodhalk/widgets/help.dart';
 
 class register extends StatelessWidget {
   const register({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+    TextEditingController usernameController = TextEditingController();
+    TextEditingController addressController = TextEditingController();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -18,6 +24,7 @@ class register extends StatelessWidget {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: size.height * 0.02),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -33,11 +40,58 @@ class register extends StatelessWidget {
                   style: GoogleFonts.poppins(
                       fontSize: size.width * 0.05, fontWeight: FontWeight.bold),
                 ),
+                SizedBox(
+                  height: size.height * 0.08,
+                ),
               ],
             ),
+            Column(
+              children: [
+                text_field(
+                    size: size,
+                    controller: usernameController,
+                    hint: "Username"),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                text_field(
+                    size: size, controller: emailController, hint: "E mail"),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                text_field(
+                    size: size,
+                    controller: passwordController,
+                    hint: "Password"),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                text_field(
+                    size: size, controller: addressController, hint: "Address"),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                SizedBox(height: size.height * 0.01),
+                button(size: size, text: "Sign Up", onPressed: _register),
+                SizedBox(height: size.height * 0.01),
+                text_button(
+                  size: size,
+                  text1: "Already have an account? ",
+                  text2: 'Login',
+                  nextpage: const login(),
+                )
+              ],
+            ),
+            SizedBox(height: size.height * 0.02),
           ],
         )),
       ),
     );
   }
 }
+
+void _register() {}

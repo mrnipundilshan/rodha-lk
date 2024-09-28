@@ -8,8 +8,8 @@ class login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController email_controller = TextEditingController();
-    TextEditingController password_controller = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -22,6 +22,7 @@ class login extends StatelessWidget {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: size.height * 0.02),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -37,35 +38,43 @@ class login extends StatelessWidget {
                   style: GoogleFonts.poppins(
                       fontSize: size.width * 0.05, fontWeight: FontWeight.bold),
                 ),
+                SizedBox(
+                  height: size.height * 0.08,
+                ),
               ],
             ),
             Column(
               children: [
                 text_field(
                     size: size,
-                    controller: email_controller,
-                    hint: "Enter E mail"),
+                    controller: emailController,
+                    hint: "Enter Username"),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
                 text_field(
                     size: size,
-                    controller: password_controller,
+                    controller: passwordController,
                     hint: "Enter Password"),
+                SizedBox(
+                  height: size.height * 0.06,
+                ),
               ],
             ),
             Column(
               children: [
                 SizedBox(height: size.height * 0.01),
-                button(size: size, text: "Login", onPressed: _login)
+                button(size: size, text: "Login", onPressed: _login),
+                SizedBox(height: size.height * 0.01),
+                text_button(
+                  size: size,
+                  text1: "Don't have an account? ",
+                  text2: 'Register',
+                  nextpage: const register(),
+                )
               ],
             ),
-            text_button(
-              size: size,
-              text1: "Don't have an account? ",
-              text2: 'Register',
-              nextpage: const register(),
-            )
+            SizedBox(height: size.height * 0.02),
           ],
         )),
       ),
