@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rodhalk/widgets/help.dart';
 
 class homepage extends StatelessWidget {
   const homepage({super.key});
@@ -61,33 +62,13 @@ class homepage extends StatelessWidget {
             SizedBox(
               height: size.height * 0.1,
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                elevation: 5,
-                padding: EdgeInsets.only(
-                  top: size.height * 0.04,
-                  bottom: size.height * 0.04,
-                  left: size.width * 0.25,
-                  right: size.width * 0.25,
-                ),
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: Text(
-                "Get Started",
-                style: GoogleFonts.poppins(
-                    height: 0.01,
-                    color: const Color.fromRGBO(255, 106, 0, 1),
-                    fontSize: size.width * 0.06,
-                    fontWeight: FontWeight.bold),
-              ),
-            )
+            button(
+                size: size, text: "Get Started", onPressed: _handleButtonPress)
           ],
         ),
       ),
     );
   }
 }
+
+void _handleButtonPress() {}

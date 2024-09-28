@@ -60,6 +60,7 @@ class _splashscreenState extends State<splashscreen> {
         child: Center(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "RODHA.LK",
