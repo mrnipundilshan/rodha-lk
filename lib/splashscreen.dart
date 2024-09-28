@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rodhalk/homepage.dart';
 
 class splashscreen extends StatefulWidget {
   @override
@@ -13,9 +14,37 @@ class _splashscreenState extends State<splashscreen> {
     super.initState();
     // Add a delay before navigating to the next screen
     Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(
-          context, '/home'); // Replace with your home route
+      Navigator.of(context).pushReplacement(_createRoute());
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Preload images here, where MediaQuery is available
+    precacheImage(AssetImage("assets/bg.png"), context);
+    precacheImage(AssetImage("assets/bike.png"), context);
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          homepage(), // Replace with your HomePage widget
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = 0.0;
+        const end = 1.0;
+        const curve = Curves.easeInOut;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var opacityAnimation = animation.drive(tween);
+
+        return FadeTransition(
+          opacity: opacityAnimation,
+          child: child,
+        );
+      },
+    );
   }
 
   @override
