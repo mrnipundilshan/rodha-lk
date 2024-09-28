@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/', // Set the splash screen as the initial route
       routes: {
         '/': (context) => splashscreen(),
-        '/home': (context) => homepage(), // Replace with your main screen
-        'login': (context) => login(),
+        '/home': (context) => homepage(),
+        '/login': (context) => login(),
         '/register': (context) => register(),
       },
     );

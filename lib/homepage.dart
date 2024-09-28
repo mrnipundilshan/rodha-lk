@@ -63,7 +63,9 @@ class homepage extends StatelessWidget {
               height: size.height * 0.1,
             ),
             button(
-                size: size, text: "Get Started", onPressed: _handleButtonPress)
+                size: size,
+                text: "Get Started",
+                onPressed: () => _handleButtonPress(context))
           ],
         ),
       ),
@@ -71,4 +73,6 @@ class homepage extends StatelessWidget {
   }
 }
 
-void _handleButtonPress() {}
+void _handleButtonPress(BuildContext context) {
+  Navigator.of(context).pushReplacementNamed("/login");
+}
